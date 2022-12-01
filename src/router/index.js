@@ -6,8 +6,9 @@ const routes = [
      { path: "", component: Home, name: "Home" },
      { path: "/:pathMatch(.*)*", component: NotFound },
      { path: "/a", redirect: { name: "Settings" } },
-     { path: "/about", component: () => import("../views/AboutComponent.vue"), name: "About", },
-     { path: "/settings", component: () => import("../views/SettingsComponent.vue"), name: "Settings" }
+     { path: "/about", alias: "/about-us", component: () => import("../views/AboutComponent.vue"), name: "About", },
+     { path: "/settings", component: () => import("../views/SettingsComponent.vue"), name: "Settings" },
+     { path: "/settings/:id", component: () => import("../views/SpecificSettings.vue"), name: "SpecificSettings" }
 ]
 
 const router = createRouter({

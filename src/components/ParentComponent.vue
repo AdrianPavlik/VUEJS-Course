@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { computed, reactive } from 'vue';
+import { computed, reactive, watch, watchEffect } from 'vue';
 import ChildComponent from './ChildComponent.vue';
 import EventBus from '../utils/EventBus.vue';
 
@@ -39,6 +39,15 @@ const finalPrice = computed(() => {
           return chosenFilms.reduce((accumulator, item) => {
                return accumulator + item.price
           }, 0)
+})
+
+watchEffect(() => {
+     if (chosenFilms?.length > 5)
+          alert("ZLAVA")
+})
+
+watch([chosenFilms, finalPrice], function (newValues, oldValues) {
+     console.log(oldValues + " new value is " +   newValues);
 })
 </script>
 

@@ -1,19 +1,23 @@
 <script setup>
-import ParentComponent from './components/ParentComponent.vue';
-import SiblingComponent from './components/SiblingComponent.vue';
-
 
 </script>
 
 <template>
-
+  <div id="nav">
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+    <RouterLink to="/settings">Settings</RouterLink>
+  </div>
   <main>
-    <SiblingComponent />
-    <ParentComponent />
+    <RouterView />
   </main>
 </template>
 
 <style scoped>
+#nav {
+  padding: 30px;
+}
+
 header {
   line-height: 1.5;
 }

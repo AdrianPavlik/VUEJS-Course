@@ -1,12 +1,12 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/HomeComponent.vue"
-import About from "../views/AboutComponent.vue"
-import Settings from "../views/SettingsComponent.vue"
+import NotFound from "../views/NotFound.vue"
 
 const routes = [
-     { path: "/", component: Home, name: "Home" },
-     { path: "/about", component: About, name: "About" },
-     { path: "/settings", component: Settings, name: "Settings" }
+     { path: "", component: Home, name: "Home" },
+     { path: "/:pathMatch(.*)*", component: NotFound },
+     { path: "/about", component: () => import("../views/AboutComponent.vue"), name: "About", },
+     { path: "/settings", component: () => import("../views/SettingsComponent.vue"), name: "Settings" }
 ]
 
 const router = createRouter({

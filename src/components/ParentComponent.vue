@@ -3,24 +3,26 @@
           <div class="parent">
                <h1>Parent component</h1>
                <div v-for="review in reviews" :key="review.id">
-                    <ChildComponent :id="review.id" :film="review.film" @addFilmToCart="updateCart($event)" />
+                    <ChildComponent :id="review.id" :film="review.film" :price="review.price"
+                         @addFilmToCart="updateCart($event)" />
                </div>
                <pre>{{ chosenFilms }}</pre>
           </div>
      </div>
+     {{ finalPrice }}
 </template>
 
 <script setup>
-import { reactive } from 'vue';
+import { computed, reactive } from 'vue';
 import ChildComponent from './ChildComponent.vue';
 import EventBus from '../utils/EventBus.vue';
 
 const reviews = reactive([
-     { id: "x", film: "Alien vs Predator 1" },
-     { id: "y", film: "Alien vs Predator 2" },
-     { id: "z", film: "Alien vs Predator 3" },
-     { id: "u", film: "Alien vs Predator 4" },
-     { id: "i", film: "Alien vs Predator 5" },
+     { id: "x", film: "Alien vs Predator 1", price: 10 },
+     { id: "y", film: "Alien vs Predator 2", price: 12 },
+     { id: "z", film: "Alien vs Predator 3", price: 13 },
+     { id: "u", film: "Alien vs Predator 4", price: 14 },
+     { id: "i", film: "Alien vs Predator 5", price: 15 },
 ])
 
 const chosenFilms = reactive([])
@@ -30,6 +32,14 @@ function updateCart($event) {
      EventBus.$emit("COUNT_FILMS", chosenFilms?.length)
 }
 
+const finalPrice = computed(() => {
+     if (chosenFilms?.length === 0)
+          return 0;
+     else
+          return chosenFilms.reduce((accumulator, item) => {
+               return accumulator + item.price
+          }, 0)
+})
 </script>
 
 <style scoped>

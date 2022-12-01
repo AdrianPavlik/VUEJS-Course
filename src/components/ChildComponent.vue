@@ -2,7 +2,7 @@
      <div>
           <div class="card">
                {{ id }} {{ film }}
-               <button @click="addToCart({ id, film })">Add to cart</button>
+               <button @click="addToCart({ id, film, price })">Add to cart</button>
           </div>
      </div>
 </template>
@@ -12,6 +12,10 @@ defineProps({
      id: String,
      film: {
           type: String,
+          required: true
+     },
+     price: {
+          type: Number,
           required: true
      }
 })

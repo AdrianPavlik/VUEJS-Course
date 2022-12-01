@@ -11,6 +11,7 @@
 </template>
 
 <script>
+
 //options API
 export default {
      name: "ParentOptionsApi",
@@ -32,6 +33,12 @@ export default {
                }, 1000);
           }
      },
+     created: () => {
+          console.log("Created from ParentOptionsAPI")
+     },
+     onBeforeMount: () => {
+          console.log("On before mount")
+     }
 };
 </script>
 

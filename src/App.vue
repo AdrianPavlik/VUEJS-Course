@@ -1,4 +1,6 @@
 <script setup>
+import ParentCompositionApi from './components/ParentCompositionApi.vue';
+import ParentCompositionApiScript from './components/ParentCompositionApiScript.vue';
 import ParentOptionsApi from './components/ParentOptionsApi.vue';
 
 </script>
@@ -11,6 +13,10 @@ import ParentOptionsApi from './components/ParentOptionsApi.vue';
 
   <main>
     <ParentOptionsApi></ParentOptionsApi>
+    <hr>
+    <ParentCompositionApi></ParentCompositionApi>
+    <hr>
+    <ParentCompositionApiScript></ParentCompositionApiScript>
   </main>
 </template>
 

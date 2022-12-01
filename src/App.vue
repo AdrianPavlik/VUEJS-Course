@@ -1,22 +1,13 @@
 <script setup>
-import ParentCompositionApi from './components/ParentCompositionApi.vue';
-import ParentCompositionApiScript from './components/ParentCompositionApiScript.vue';
-import ParentOptionsApi from './components/ParentOptionsApi.vue';
+import ParentComponent from './components/ParentComponent.vue';
+
 
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-  </header>
 
   <main>
-    <ParentOptionsApi></ParentOptionsApi>
-    <hr>
-    <ParentCompositionApi></ParentCompositionApi>
-    <hr>
-    <ParentCompositionApiScript></ParentCompositionApiScript>
+    <ParentComponent></ParentComponent>
   </main>
 </template>
 

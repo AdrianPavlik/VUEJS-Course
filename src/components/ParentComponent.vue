@@ -13,6 +13,7 @@
 <script setup>
 import { reactive } from 'vue';
 import ChildComponent from './ChildComponent.vue';
+import EventBus from '../utils/EventBus.vue';
 
 const reviews = reactive([
      { id: "x", film: "Alien vs Predator 1" },
@@ -26,6 +27,7 @@ const chosenFilms = reactive([])
 
 function updateCart($event) {
      chosenFilms.push($event)
+     EventBus.$emit("COUNT_FILMS", chosenFilms?.length)
 }
 
 </script>

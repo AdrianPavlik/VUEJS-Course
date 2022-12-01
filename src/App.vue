@@ -1,5 +1,6 @@
 <script setup>
 import ParentComponent from './components/ParentComponent.vue';
+import SiblingComponent from './components/SiblingComponent.vue';
 
 
 </script>
@@ -7,7 +8,8 @@ import ParentComponent from './components/ParentComponent.vue';
 <template>
 
   <main>
-    <ParentComponent></ParentComponent>
+    <SiblingComponent />
+    <ParentComponent />
   </main>
 </template>
 

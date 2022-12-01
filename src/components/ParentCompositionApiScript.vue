@@ -1,38 +1,41 @@
 <template>
      <div>
-          {{ title }}
-          <button @click="greet()">Say hi from Composition API Script</button>
-          <button @click="changeTitle()">Change title from Composition API Script</button>
-          <button @click="changeObj()">Change obj from Composition API Script</button> {{ obj }}
+          {{ obj2.data }}
+          <button @click="changeObj2()">Clickni</button>
      </div>
 </template>
 
 <script setup>
-import { ref } from "vue";
-let title = ref("Parent Composition API Script");
-let obj = ref({
-     firstname: "Adrián",
-     lastname: "Pavlik"
+import { reactive } from "vue";
+
+let obj2 = reactive({
+     data: {
+          firstname: "Adrián",
+          lastname: "Pavlik"
+     }
 })
 
-let array = ref([])
+function changeObj2() {
 
-function greet() {
-     console.log("Hello from Composition API");
-}
-function changeTitle() {
-     setTimeout(() => {
-          title.value = "Krásny title"
-          console.log(title)
-     }, 1000);
-}
-
-function changeObj() {
-     //obj.value.firstname = "Hans";
-     obj.value = {
-          firstname: "Hans"
+     //nevýhoda reactive je že sa robzije - prepíšeme celú premennú
+     //obj2 = {
+     //     key1: "ahoj"
+     //}
+     //1. možnosť menenia objektu
+     //obj2.firstname = "Hans";
+     //2. možnosť menenia objektu
+     //Object.assign(obj2, {
+     //     firstname: "Peter",
+     //     middlename: "Stanislav"
+     //})
+     //3. možnosť menenia objektu použitie nepriamých dát
+     obj2.data = {
+          firstname: "Peter",
+          middlename: "Test"
      }
+     console.log(obj2)
 }
+
 </script>
 
 <style scoped>

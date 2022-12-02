@@ -19,13 +19,8 @@ export const useFilmStore = defineStore({
                return state.chosenFilms.length;
           },
           getFilmById: (state) => (id) => {
-               const foundFilm = state.chosenFilms.find((film) => {
-                    if (film.id === id) {
-                         return film
-                    }
-                    return "Found!"
-               });
-               return foundFilm;
+               const foundFilm = state.chosenFilms.find((film) => film.id === id);
+               return foundFilm || "Not found";
           }
      }
 }) 

@@ -1,24 +1,23 @@
 <template>
-     <Suspense>
-          <div class="header">
-               <h1 id="pozdrav">Zdravím z VUE.JS kurzu!</h1>
+     <div class="header">
+          <button @click="addFilm()">Add film</button>
+          <div v-for="film in films.data" :key="film.id">{{ film.name }}
+               <input type="checkbox" v-model="film.checked">
           </div>
-     </Suspense>
+
+     </div>
 </template>
 
 <script setup>
-import { FilmService } from '../services/FilmService';
-
-//FilmService.getAll().then(res => console.log(res.data))
+import { reactive } from 'vue';
+import { useFilm } from '../composables/film'
+const films = reactive({ data: [] });
+const { getFilms, addFilm } = useFilm();
 
 (async () => {
-     try {
-          const response = await FilmService.getAll()
-          console.log(response)
-     } catch (error) {
-          console.log(error)
-     }
+     films.data = await getFilms()
 })();
+
 
 </script>
 
@@ -26,6 +25,7 @@ import { FilmService } from '../services/FilmService';
 .header {
      height: 100%;
      display: flex;
+     flex-direction: column;
      justify-content: center;
      align-items: center;
 }

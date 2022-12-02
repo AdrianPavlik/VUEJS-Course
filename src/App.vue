@@ -1,12 +1,17 @@
-<script setup>
-
-</script>
+<script setup />
 
 <template>
-  <div id="nav">
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
-    <RouterLink to="/settings">Settings</RouterLink>
+  <div class="nav">
+    <RouterLink class="navItem" to="/">
+      <p>Home</p>
+    </RouterLink>
+    <RouterLink class="navItem" to="/about">
+      <p>About</p>
+    </RouterLink>
+    <RouterLink class="navItem" to="/settings">
+      <p>Settings</p>
+    </RouterLink>
+    <p class="footer">Adrián Pavlik👋</p>
   </div>
   <main>
     <RouterView />
@@ -14,34 +19,45 @@
 </template>
 
 <style scoped>
-#nav {
-  padding: 30px;
+.nav {
+  max-width: 250px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  background-color: rgba(5, 5, 5, 0.42);
 }
 
-header {
-  line-height: 1.5;
-}
-
-.logo {
+.navItem {
+  min-height: 100px;
+  max-height: 100px;
   display: block;
-  margin: 0 auto 2rem;
+  background-color: rgba(104, 104, 104, 0.42);
+  transition: 0.3s;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+.navItem:hover {
+  background-color: rgba(74, 74, 74, 0.42);
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.navItem:hover p {
+  color: darkseagreen;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+.navItem p {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  color: hsla(160, 100%, 37%, 1);
+  margin-bottom: 10px;
 }
 </style>

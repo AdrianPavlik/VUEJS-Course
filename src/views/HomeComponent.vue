@@ -1,7 +1,7 @@
 <template>
      <Suspense>
-          <div>
-               <h1>Home</h1>
+          <div class="header">
+               <h1 id="pozdrav">Zdravím z VUE.JS kurzu!</h1>
           </div>
      </Suspense>
 </template>
@@ -12,12 +12,25 @@ import { FilmService } from '../services/FilmService';
 //FilmService.getAll().then(res => console.log(res.data))
 
 (async () => {
-     const response = await FilmService.getAll()
-     console.log(response)
+     try {
+          const response = await FilmService.getAll()
+          console.log(response)
+     } catch (error) {
+          console.log(error)
+     }
 })();
 
 </script>
 
 <style scoped>
+.header {
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
 
+#pozdrav {
+     color: rgb(66, 184, 131);
+}
 </style>

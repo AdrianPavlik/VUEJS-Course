@@ -4,7 +4,7 @@ import NotFound from "../views/NotFound.vue"
 
 const isAuthed = (to, from, next) => {
      //Cookies platny kod, token a pod.
-     const isAuth = false;
+     const isAuth = true;
      if (isAuth)
           next()
      else

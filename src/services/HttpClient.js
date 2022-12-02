@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const HttpClient = axios.create({
-     baseURL: "https://5ed74760152c310016d84d62.mockapi.io",
+     baseURL: `${import.meta.env.VITE_API_ENDPOINT}`,
      withCredentials: false,
      headers: {
           Accept: "application/json",
